@@ -1,42 +1,148 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+    min-width: 360px;
+    min-height: 100vh;
+    background-position: center;
+    background-image: url('/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App {
+    max-width: 420px;
+    margin: auto;
+    background: none;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(30, 60, 114, 0.18);
+    padding: 32px 24px 24px 24px;
+    text-align: center;
+    backdrop-filter: blur(8px); 
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    transition: background 0.3s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    color: #1e3c72;
+    margin-bottom: 0.5em;
+    text-shadow: 0 2px 8px rgba(30,60,114,0.10), 
+                 0 0 2px #fff, 
+                 0 0 6px #fff;
 }
 
-.card {
-  padding: 2em;
+p {
+    color: #ffffff;
+    margin-bottom: 1em;
 }
 
-.read-the-docs {
-  color: #888;
+.flashcard {
+    background: linear-gradient(120deg, #f8fafc 60%, #e0e7ef 100%);
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(30, 60, 114, 0.10);
+    padding: 40px 24px;           
+    margin: 32px 0;               
+    cursor: pointer;
+    min-height: 320px;            
+    min-width: 280px;             
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+
+    transform-style: preserve-3d;
+    transition: transform 0.2s, box-shadow 0.2s;
+    transform: perspective(1000px) rotateX(var(--rotate-X, 0));
+}
+
+.flashcard.flipped {
+    --rotate-X: 180deg;
+}
+
+.flashcard:hover {
+    box-shadow: 0 8px 32px rgba(30, 60, 114, 0.18);
+}
+
+.flashcard .question img {
+    width: 260px;                 
+    height: 180px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-top: 12px;
+    box-shadow: 0 2px 8px rgba(30, 60, 114, 0.20);
+    background: #fff;
+}
+
+.flashcard .answer {
+    transform: rotateX(180deg);
+    color: #2a5298;
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.flashcard .answer h2 {
+    text-shadow: 0 2px 8px rgba(30,60,114,0.10), 
+                 0 0 2px #fff, 
+                 0 0 6px #fff;
+}
+
+.flashcard#easy {
+    background: rgba(0, 255, 0, 0.8);
+    /* green for easy */
+}
+
+.flashcard#medium {
+    background: rgba(255, 255, 0, 0.8);
+    /* yellow for medium */
+}
+
+.flashcard#hard {
+    background: rgba(255, 0, 0, 0.8);
+    /* red for hard */
+}
+
+button {
+    background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(30, 60, 114, 0.10);
+    transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
+    transform: translateY(-2px) scale(1.04);
+}
+
+@media (max-width: 600px) {
+    .App {
+        padding: 16px 4px;
+    }
+
+    .flashcard {
+        padding: 22px 4px;
+        min-height: 180px;
+        min-width: unset;
+    }
+
+    .flashcard .question img {
+        width: 120px;
+        height: 80px;
+    }
 }
