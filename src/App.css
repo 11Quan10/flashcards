@@ -125,9 +125,31 @@ button {
     transition: background 0.2s, transform 0.1s;
 }
 
+button:disabled {
+    background: #bfc9d1 !important;
+    color: #eaeaea !important;
+    cursor: not-allowed !important;
+    opacity: 0.6;
+    box-shadow: none;
+    transform: none;
+}
+
+button:disabled:hover {
+    background: #bfc9d1 !important;
+    color: #eaeaea !important;
+    transform: none;
+}
+
 button:hover {
     background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
     transform: translateY(-2px) scale(1.04);
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 10px;
 }
 
 @media (max-width: 600px) {
@@ -145,4 +167,52 @@ button:hover {
         width: 120px;
         height: 80px;
     }
+}
+
+/* --- SubmitBox styles --- */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color:rgba(0, 255, 0, 0.8)
+}
+
+#guess-input {
+    padding: 10px 14px;
+    border: 1.5px solid #2a5298;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    width: 220px;
+    transition: border 0.2s;
+    background: #f8fafc;
+    color: #1e3c72;
+}
+
+#guess-input:focus {
+    border-color: #1e3c72;
+    outline: none;
+    background: #fff;
+}
+
+#correct-answer {
+    color: #1e7c3c;
+    font-weight: bold;
+    margin-top: 6px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+#incorrect-answer {
+    color: #c0392b;
+    font-weight: bold;
+    margin-top: 6px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+form button[type="submit"] {
+    margin-top: 4px;
+    width: 120px;
 }

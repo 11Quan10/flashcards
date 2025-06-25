@@ -1,16 +1,15 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
-const Flashcard = ({ card }) => {
-    const [flipped, setFlipped] = useState(false);
-
+const Flashcard = ({ card, flipped, setFlipped }) => {
     useEffect(() => {
         setFlipped(false);
+        // eslint-disable-next-line
     }, [card]);
 
     const flipCard = () => setFlipped(!flipped);
 
     return (
-        <div id={card.difficulty} className={`flashcard ${flipped ? " flipped" : ""}`} onClick={flipCard}>
+        <div id={card.difficulty} className={`flashcard${flipped ? " flipped" : ""}`} onClick={flipCard}>
             {
                 flipped ? (
                     <div className="answer">
